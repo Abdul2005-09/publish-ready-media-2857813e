@@ -105,7 +105,7 @@ export function Envelope() {
         </div>
 
         <p
-          className="absolute bottom-[7svh] animate-bounce font-display text-[0.65rem] tracking-[0.25em] text-primary"
+          className="absolute bottom-[13svh] animate-bounce px-6 text-center font-display text-[0.65rem] tracking-[0.25em] text-primary"
           style={{ opacity: 1 - flap }}
         >
           SCROLL TO REVEAL YOUR INVITATION ↓
