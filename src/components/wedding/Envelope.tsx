@@ -33,10 +33,9 @@ export function Envelope() {
     };
   }, []);
 
-  const t = clamp(p / 0.25); // flap opening
-  const flap = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; // ease-in-out hinge
-  const rise = clamp((p - 0.15) / 0.75); // extraction overlaps the opening, without a pause
-  const ease = rise * rise * (3 - 2 * rise); // reversible easing without early overshoot
+  // The envelope never opens or moves; only the letter slides out with scroll.
+  const rise = clamp((p - 0.05) / 0.8);
+  const ease = rise * rise * (3 - 2 * rise);
   const settle = ease;
 
   return (
@@ -49,11 +48,11 @@ export function Envelope() {
 
         {/* Envelope stage */}
         <div
-          className="envelope relative aspect-[10/7] w-[min(86vw,420px,48svh)]"
+          className="envelope relative aspect-[10/6] w-[min(86vw,420px,42svh)]"
           style={{
             opacity: clamp(enter * 1.4),
-            transform: `translateY(calc(${(1 - enter) * 60}px + ${settle * 40}svh)) scale(${0.94 + enter * 0.06 - settle * 0.04})`,
-            filter: `drop-shadow(0 ${12 + flap * 10}px ${18 + flap * 12}px oklch(0.3 0.08 30 / 0.3))`,
+            transform: `translateY(calc(${(1 - enter) * 60}px + 25svh))`,
+            filter: "drop-shadow(0 16px 24px oklch(0.3 0.08 30 / 0.3))",
           }}
         >
           <div className="envelope-back absolute inset-0 rounded-md shadow-paper" />
@@ -61,16 +60,16 @@ export function Envelope() {
           {/* Letter (clipped at envelope bottom, hidden behind the front pocket) */}
           <div className="absolute inset-x-[5%] bottom-[3%] top-[-260%] z-10 overflow-hidden">
             <article
-              className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
+              className="letter absolute inset-x-0 bottom-0 aspect-[10/16] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
-                transform: `translateY(${38 - ease * 88}%)`,
+                transform: `translateY(${51 - ease * 88}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
               <p className="font-display text-[0.5rem] tracking-[0.3em] text-gold sm:text-[0.65rem]">YOU ARE CORDIALLY</p>
               <h3 className="font-script text-[1.9rem] leading-none text-primary sm:text-[2.6rem]">Invited</h3>
               <Ornament />
-              <div className="space-y-[0.55em] font-serif text-[0.72rem] leading-snug text-foreground sm:text-[0.88rem]">
+              <div className="space-y-[0.55em] font-serif text-[0.66rem] leading-snug text-foreground sm:text-[0.88rem]">
                 <p>As we begin a beautiful new chapter of our lives, we are filled with love, gratitude, and happiness.</p>
                 <p>With the blessings of our families and the love of those who mean the most to us, we joyfully invite you to celebrate the beginning of our forever.</p>
                 <p>Your presence and heartfelt blessings would make our special moments even more memorable as we promise to walk through life together, hand in hand.</p>
@@ -78,7 +77,7 @@ export function Envelope() {
               </div>
               <p className="font-script text-[1.6rem] leading-tight text-primary sm:text-[2.1rem]">Dhyaani &amp; Vinotha</p>
               <div className="mx-auto my-[0.4em] h-px w-2/3 bg-gold/60" />
-              <div className="space-y-[0.4em] font-serif text-[0.72rem] italic leading-snug text-foreground sm:text-[0.88rem]">
+              <div className="space-y-[0.4em] font-serif text-[0.66rem] italic leading-snug text-foreground sm:text-[0.88rem]">
                 <p>Two hearts. One promise. A lifetime of love.</p>
                 <p>We look forward to celebrating this beautiful beginning with you.</p>
                 <p className="text-primary">Your presence is our greatest blessing.</p>
@@ -88,25 +87,14 @@ export function Envelope() {
 
           <div className="envelope-front absolute inset-0 z-20 rounded-md" />
 
-          {/* Flap */}
-          <div
-            className="absolute inset-x-0 top-0 h-[62%] origin-top"
-            style={{ transformStyle: "preserve-3d", transform: `perspective(900px) rotateX(${flap * 180}deg)`, zIndex: flap > 0.5 ? 5 : 30 }}
-          >
-            <div className="envelope-flap absolute inset-0" />
-            <div className="envelope-flap-inner absolute inset-0" />
-            <div
-              className="absolute left-1/2 top-full flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center envelope-seal rounded-full font-script text-xl sm:size-14"
-              style={{ opacity: 1 - flap * 2 }}
-            >
-              D&amp;V
-            </div>
+          <div className="envelope-seal absolute left-1/2 top-[55%] z-30 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full font-script text-xl sm:size-14">
+            D&amp;V
           </div>
         </div>
 
         <p
-          className="absolute bottom-[13svh] animate-bounce px-6 text-center font-display text-[0.65rem] tracking-[0.25em] text-primary"
-          style={{ opacity: 1 - flap }}
+          className="absolute bottom-[3svh] max-w-[62vw] animate-bounce text-center font-display text-[0.65rem] tracking-[0.25em] text-primary"
+          style={{ opacity: 1 - rise * 3 }}
         >
           SCROLL TO REVEAL YOUR INVITATION ↓
         </p>
