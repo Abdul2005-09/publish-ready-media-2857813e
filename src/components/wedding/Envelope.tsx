@@ -61,7 +61,7 @@ export function Envelope() {
           {/* Letter (clipped at envelope bottom, hidden behind the front pocket) */}
           <div className="absolute inset-x-[5%] bottom-[3%] top-[-260%] z-10 overflow-hidden">
             <article
-              className="letter absolute inset-x-0 bottom-0 aspect-[10/17] rounded-sm px-[8%] py-[7%] text-center"
+              className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
                 transform: `translateY(${82 - ease * 132}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
