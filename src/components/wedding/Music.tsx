@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import music from "@/assets/wedding-music.m4a.asset.json";
+import music from "@/assets/wedding-music.mp3.asset.json";
 
-// Background soundtrack (extracted from the wedding video). Starts on the visitor's
+// Background soundtrack (uploaded MP3; the video itself is silent). Starts on the visitor's
 // first interaction (mobile autoplay rules); the button only toggles ON/OFF.
 export function Music({ start }: { start: boolean }) {
   const ref = useRef<HTMLAudioElement>(null);
