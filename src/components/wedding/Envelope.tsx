@@ -48,10 +48,10 @@ export function Envelope() {
 
         {/* Envelope stage */}
         <div
-          className="envelope relative aspect-[10/7] w-[min(86vw,420px,44svh)]"
+          className="envelope relative aspect-[10/6] w-[min(86vw,420px,42svh)]"
           style={{
             opacity: clamp(enter * 1.4),
-            transform: `translateY(calc(${(1 - enter) * 60}px + 22svh))`,
+            transform: `translateY(calc(${(1 - enter) * 60}px + 25svh))`,
             filter: "drop-shadow(0 16px 24px oklch(0.3 0.08 30 / 0.3))",
           }}
         >
@@ -62,7 +62,7 @@ export function Envelope() {
             <article
               className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
-                transform: `translateY(${41 - ease * 80}%)`,
+                transform: `translateY(${48 - ease * 93}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
