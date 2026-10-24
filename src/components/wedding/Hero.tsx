@@ -6,9 +6,9 @@ import poster from "@/assets/wedding-final-poster.jpg.asset.json";
 // so the message is hidden from just before that point until the loop restarts.
 export const NAMES_REVEAL_AT = 12.7;
 
-// Lines reveal one by one; the last appears ~8.6s, well before the names at 12.9s.
-const LINE_START = 1.2;
-const LINE_GAP = 1.6;
+// Lines reveal one by one; the last appears ~10s, well before the names at 12.9s.
+const LINE_START = 0.8;
+const LINE_GAP = 2.3;
 const LINES: [string, boolean][] = [
   ["Blessed by the Stars...", true],
   ["Surrounded by Loved Ones...", true],
