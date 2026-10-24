@@ -33,9 +33,9 @@ export function Envelope() {
     };
   }, []);
 
-  const t = clamp(p / 0.3); // flap opening
+  const t = clamp(p / 0.25); // flap opening
   const flap = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; // ease-in-out hinge
-  const rise = clamp((p - 0.22) / 0.78); // extraction overlaps the opening, without a pause
+  const rise = clamp((p - 0.15) / 0.75); // extraction overlaps the opening, without a pause
   const ease = rise * rise * (3 - 2 * rise); // reversible easing without early overshoot
   const settle = ease;
 
@@ -63,7 +63,7 @@ export function Envelope() {
             <article
               className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
-                transform: `translateY(${82 - ease * 132}%)`,
+                transform: `translateY(${38 - ease * 88}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
@@ -105,10 +105,10 @@ export function Envelope() {
         </div>
 
         <p
-          className="absolute bottom-[5svh] font-display text-[0.65rem] tracking-[0.3em] text-muted-foreground"
+          className="absolute bottom-[7svh] animate-bounce font-display text-[0.65rem] tracking-[0.25em] text-primary"
           style={{ opacity: 1 - flap }}
         >
-          SCROLL TO OPEN
+          SCROLL TO REVEAL YOUR INVITATION ↓
         </p>
       </div>
     </section>
