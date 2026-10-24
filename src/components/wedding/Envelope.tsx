@@ -60,16 +60,16 @@ export function Envelope() {
           {/* Letter (clipped at envelope bottom, hidden behind the front pocket) */}
           <div className="absolute inset-x-[5%] bottom-[3%] top-[-260%] z-10 overflow-hidden">
             <article
-              className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
+              className="letter absolute inset-x-0 bottom-0 aspect-[10/16] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
-                transform: `translateY(${48 - ease * 93}%)`,
+                transform: `translateY(${51 - ease * 88}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
               <p className="font-display text-[0.5rem] tracking-[0.3em] text-gold sm:text-[0.65rem]">YOU ARE CORDIALLY</p>
               <h3 className="font-script text-[1.9rem] leading-none text-primary sm:text-[2.6rem]">Invited</h3>
               <Ornament />
-              <div className="space-y-[0.55em] font-serif text-[0.72rem] leading-snug text-foreground sm:text-[0.88rem]">
+              <div className="space-y-[0.55em] font-serif text-[0.66rem] leading-snug text-foreground sm:text-[0.88rem]">
                 <p>As we begin a beautiful new chapter of our lives, we are filled with love, gratitude, and happiness.</p>
                 <p>With the blessings of our families and the love of those who mean the most to us, we joyfully invite you to celebrate the beginning of our forever.</p>
                 <p>Your presence and heartfelt blessings would make our special moments even more memorable as we promise to walk through life together, hand in hand.</p>
@@ -77,7 +77,7 @@ export function Envelope() {
               </div>
               <p className="font-script text-[1.6rem] leading-tight text-primary sm:text-[2.1rem]">Dhyaani &amp; Vinotha</p>
               <div className="mx-auto my-[0.4em] h-px w-2/3 bg-gold/60" />
-              <div className="space-y-[0.4em] font-serif text-[0.72rem] italic leading-snug text-foreground sm:text-[0.88rem]">
+              <div className="space-y-[0.4em] font-serif text-[0.66rem] italic leading-snug text-foreground sm:text-[0.88rem]">
                 <p>Two hearts. One promise. A lifetime of love.</p>
                 <p>We look forward to celebrating this beautiful beginning with you.</p>
                 <p className="text-primary">Your presence is our greatest blessing.</p>
