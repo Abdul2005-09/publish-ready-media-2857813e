@@ -49,7 +49,7 @@ export function Envelope() {
 
         {/* Envelope stage */}
         <div
-          className="envelope relative aspect-[10/7] w-[min(86vw,400px,52svh)]"
+          className="envelope relative aspect-[10/7] w-[min(86vw,420px,48svh)]"
           style={{
             opacity: clamp(enter * 1.4),
             transform: `translateY(calc(${(1 - enter) * 60}px + ${settle * 40}svh)) scale(${0.94 + enter * 0.06 - settle * 0.04})`,
@@ -61,36 +61,28 @@ export function Envelope() {
           {/* Letter (clipped at envelope bottom, hidden behind the front pocket) */}
           <div className="absolute inset-x-[5%] bottom-[3%] top-[-260%] z-10 overflow-hidden">
             <article
-              className="letter absolute inset-x-0 bottom-0 aspect-[10/16] rounded-sm px-[8%] py-[9%] text-center"
+              className="letter absolute inset-x-0 bottom-0 aspect-[10/15] flex flex-col justify-center rounded-sm px-[8%] py-[6%] text-center"
               style={{
-                transform: `translateY(${100 - ease * 150}%)`,
+                transform: `translateY(${82 - ease * 132}%)`,
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
-              <p className="font-display text-[0.6rem] tracking-[0.35em] text-gold sm:text-xs">You Are Cordially</p>
-              <h3 className="mt-2 font-script text-[2rem] leading-none text-primary sm:text-5xl">Invited</h3>
+              <p className="font-display text-[0.5rem] tracking-[0.3em] text-gold sm:text-[0.65rem]">YOU ARE CORDIALLY</p>
+              <h3 className="font-script text-[1.9rem] leading-none text-primary sm:text-[2.6rem]">Invited</h3>
               <Ornament />
-              <p className="font-serif text-[0.95rem] italic leading-snug text-foreground sm:text-lg">
-                With hearts full of love and gratitude, we joyfully invite you to celebrate the beginning of our forever.
-                Your presence and blessings would make our day truly complete.
-              </p>
-              <p className="mt-3 font-script text-[1.9rem] leading-tight text-primary sm:text-4xl">Dhyaani &amp; Vinotha</p>
-              <div className="mx-auto my-3 h-px w-2/3 bg-gold/60" />
-              <dl className="space-y-2 font-serif text-[0.85rem] leading-tight text-foreground sm:text-base">
-                <div>
-                  <dt className="font-display text-[0.6rem] tracking-[0.3em] text-gold sm:text-xs">RECEPTION</dt>
-                  <dd>Saturday, 21 November 2026 · 6:00 PM onwards</dd>
-                </div>
-                <div>
-                  <dt className="font-display text-[0.6rem] tracking-[0.3em] text-gold sm:text-xs">MUHURTHAM</dt>
-                  <dd>Sunday, 22 November 2026 · 10:00 – 11:50 AM</dd>
-                </div>
-                <div>
-                  <dt className="font-display text-[0.6rem] tracking-[0.3em] text-gold sm:text-xs">VENUE</dt>
-                  <dd>The Royal Mahal, Vayalur, Trichy, Tamil Nadu</dd>
-                </div>
-              </dl>
-              <p className="mt-3 font-serif text-[0.9rem] italic text-primary sm:text-base">Your presence, our greatest blessing.</p>
+              <div className="space-y-[0.55em] font-serif text-[0.72rem] leading-snug text-foreground sm:text-[0.88rem]">
+                <p>As we begin a beautiful new chapter of our lives, we are filled with love, gratitude, and happiness.</p>
+                <p>With the blessings of our families and the love of those who mean the most to us, we joyfully invite you to celebrate the beginning of our forever.</p>
+                <p>Your presence and heartfelt blessings would make our special moments even more memorable as we promise to walk through life together, hand in hand.</p>
+                <p className="pt-1 italic">With Love,</p>
+              </div>
+              <p className="font-script text-[1.6rem] leading-tight text-primary sm:text-[2.1rem]">Dhyaani &amp; Vinotha</p>
+              <div className="mx-auto my-[0.4em] h-px w-2/3 bg-gold/60" />
+              <div className="space-y-[0.4em] font-serif text-[0.72rem] italic leading-snug text-foreground sm:text-[0.88rem]">
+                <p>Two hearts. One promise. A lifetime of love.</p>
+                <p>We look forward to celebrating this beautiful beginning with you.</p>
+                <p className="text-primary">Your presence is our greatest blessing.</p>
+              </div>
             </article>
           </div>
 
