@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Heading, Ornament } from "./shared";
+import { Ornament } from "./shared";
 
 const clamp = (v: number) => Math.min(1, Math.max(0, v));
 
