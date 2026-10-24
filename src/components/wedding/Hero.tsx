@@ -6,9 +6,20 @@ import poster from "@/assets/wedding-final-poster.jpg.asset.json";
 // so the message is hidden from just before that point until the loop restarts.
 export const NAMES_REVEAL_AT = 12.7;
 
+// Lines reveal one by one; the last appears ~8.6s, well before the names at 12.9s.
+const LINE_START = 1.2;
+const LINE_GAP = 1.6;
+const LINES: [string, boolean][] = [
+  ["Blessed by the Stars...", true],
+  ["Surrounded by Loved Ones...", true],
+  ["AND STEPPING INTO", false],
+  ["A Lifetime of Love", true],
+  ["And Happiness :)", true],
+];
+
 export function Hero({ active }: { active: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [showMsg, setShowMsg] = useState(true);
+  const [t, setT] = useState(0);
 
   useEffect(() => {
     const v = ref.current;
@@ -21,7 +32,7 @@ export function Hero({ active }: { active: boolean }) {
     let visible = false;
     let raf = 0;
     const tick = () => {
-      setShowMsg(v.currentTime < NAMES_REVEAL_AT);
+      setT(v.currentTime);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -58,15 +69,16 @@ export function Hero({ active }: { active: boolean }) {
           controls={false}
           aria-hidden
         />
-        <div
-          className="video-message pointer-events-none absolute inset-x-0 top-[30%] px-[8%] text-center"
-          style={{ opacity: showMsg ? 1 : 0 }}
-        >
-          <p className="font-script">Blessed by the Stars...</p>
-          <p className="font-script">Surrounded by Loved Ones...</p>
-          <p className="mt-[0.6em] font-display text-[0.42em] tracking-[0.3em]">AND STEPPING INTO</p>
-          <p className="font-script">A Lifetime of Love</p>
-          <p className="font-script">And Happiness :)</p>
+        <div className="video-message pointer-events-none absolute inset-x-0 top-[30%] px-[8%] text-center">
+          {LINES.map(([text, script], i) => (
+            <p
+              key={text}
+              className={`video-line ${script ? "font-script" : "mt-[0.6em] font-display text-[0.42em] tracking-[0.3em]"}`}
+              data-on={t >= LINE_START + i * LINE_GAP && t < NAMES_REVEAL_AT}
+            >
+              {text}
+            </p>
+          ))}
         </div>
       </div>
     </section>
