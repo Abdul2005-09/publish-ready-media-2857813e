@@ -146,16 +146,16 @@
   text-shadow: 0 1px 3px color-mix(in oklab, var(--hero-shadow) 70%, transparent), 0 2px 12px color-mix(in oklab, var(--hero-shadow) 45%, transparent);
 }
 
-/* Preserve desktop framing; phones show the complete uploaded video frame. */
-@media (width < 48rem) {
-  /* Full-height portrait section. Phones load a prepared portrait encode (full landscape
-     frame centred over a softened fill of the same footage); cover only trims that fill. */
-  .wedding-video {
-    height: 100svh;
-    min-height: 0;
-    background: radial-gradient(ellipse at center, oklch(0.3 0.08 20), var(--ink) 75%);
-  }
-  .wedding-video video { object-fit: cover; }
+/* Portrait wedding video, centred on burgundy */
+.wedding-video {
+  background: radial-gradient(ellipse at center, oklch(0.3 0.1 18), oklch(0.17 0.06 18) 80%);
+}
+.video-message {
+  font-size: clamp(1.35rem, 4.6svh, 2.4rem);
+  line-height: 1.25;
+  color: oklch(0.9 0.07 85);
+  text-shadow: 0 1px 2px oklch(0.15 0.03 40 / 0.8), 0 0 18px oklch(0.15 0.03 40 / 0.6), 0 0 28px oklch(0.75 0.1 80 / 0.25);
+  transition: opacity 0.35s ease;
 }
 
 @media (width < 40rem) {
@@ -173,28 +173,36 @@
   .wedding-lightbox img { max-width: 100%; }
 }
 
-/* Envelope invitation */
+/* Envelope invitation — burgundy envelope, gold detailing, cream card */
 .envelope-scroll.parchment { padding-block: 0; }
-.envelope-back { background: linear-gradient(160deg, oklch(0.9 0.035 82), oklch(0.84 0.045 78)); }
+.envelope-back { background: linear-gradient(160deg, oklch(0.3 0.11 18), oklch(0.24 0.09 18)); }
 .envelope-front {
-  background: linear-gradient(175deg, oklch(0.95 0.03 85), oklch(0.89 0.04 80));
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.6px), oklch(0.72 0.11 78 / 0.8) 50%, transparent calc(50% + 0.6px)) left / 50% 100% no-repeat,
+    linear-gradient(to top left, transparent calc(50% - 0.6px), oklch(0.72 0.11 78 / 0.8) 50%, transparent calc(50% + 0.6px)) right / 50% 100% no-repeat,
+    linear-gradient(175deg, oklch(0.4 0.14 18), oklch(0.3 0.12 18));
   clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
   box-shadow: inset 0 -2px 0 var(--gold);
 }
 .envelope-flap {
-  background: linear-gradient(180deg, var(--primary), oklch(0.3 0.12 18));
+  background: linear-gradient(180deg, oklch(0.42 0.14 18), oklch(0.32 0.12 18));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   backface-visibility: hidden;
 }
+.envelope-seal {
+  background: radial-gradient(circle at 35% 30%, oklch(0.9 0.09 85), oklch(0.7 0.12 72) 45%, oklch(0.52 0.1 62));
+  color: oklch(0.42 0.09 55);
+  box-shadow: 0 3px 8px oklch(0.2 0.05 30 / 0.5), inset 0 0 0 3px oklch(0.62 0.11 68 / 0.6);
+}
 .letter {
-  background: var(--card);
+  background: linear-gradient(180deg, oklch(0.985 0.012 85), oklch(0.955 0.022 82));
   border: 1px solid color-mix(in oklch, var(--gold) 60%, transparent);
-  outline: 1px solid color-mix(in oklch, var(--gold) 40%, transparent);
+  outline: 1px solid color-mix(in oklch, var(--gold) 45%, transparent);
   outline-offset: -8px;
   box-shadow: var(--shadow-paper);
 }
 .envelope-flap-inner {
-  background: linear-gradient(0deg, oklch(0.88 0.04 80), oklch(0.82 0.05 76));
+  background: linear-gradient(0deg, oklch(0.36 0.12 18), oklch(0.28 0.1 18));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform: rotateX(180deg);
   backface-visibility: hidden;

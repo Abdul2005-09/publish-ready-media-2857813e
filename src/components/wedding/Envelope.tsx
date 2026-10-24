@@ -43,7 +43,7 @@ export function Envelope() {
     <section ref={ref} className="envelope-scroll parchment relative h-[300svh]" aria-label="Invitation letter">
       <div className="sticky top-0 flex h-svh flex-col items-center justify-center overflow-hidden px-4">
         <div className="absolute top-[6svh] text-center transition-opacity duration-500" style={{ opacity: Math.min(enter * 1.5, 1 - rise * 2) }}>
-          <Heading>You’re Invited</Heading>
+          <h2 className="font-script text-5xl text-primary sm:text-6xl">You’re Invited</h2>
           <Ornament />
         </div>
 
@@ -67,8 +67,8 @@ export function Envelope() {
                 boxShadow: `0 ${8 + settle * 16}px ${20 + settle * 24}px -12px oklch(0.3 0.08 30 / ${0.25 + settle * 0.25})`,
               }}
             >
-              <p className="font-display text-[0.6rem] tracking-[0.35em] text-gold sm:text-xs">✦ With Joy ✦</p>
-              <h3 className="mt-2 font-script text-[2rem] leading-none text-primary sm:text-5xl">You Are Invited</h3>
+              <p className="font-display text-[0.6rem] tracking-[0.35em] text-gold sm:text-xs">You Are Cordially</p>
+              <h3 className="mt-2 font-script text-[2rem] leading-none text-primary sm:text-5xl">Invited</h3>
               <Ornament />
               <p className="font-serif text-[0.95rem] italic leading-snug text-foreground sm:text-lg">
                 With hearts full of love and gratitude, we joyfully invite you to celebrate the beginning of our forever.
@@ -104,7 +104,7 @@ export function Envelope() {
             <div className="envelope-flap absolute inset-0" />
             <div className="envelope-flap-inner absolute inset-0" />
             <div
-              className="absolute left-1/2 top-full flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary font-script text-xl text-primary-foreground shadow-paper ring-2 ring-gold sm:size-14"
+              className="absolute left-1/2 top-full flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center envelope-seal rounded-full font-script text-xl sm:size-14"
               style={{ opacity: 1 - flap * 2 }}
             >
               D&amp;V
