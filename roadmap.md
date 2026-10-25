@@ -19,3 +19,5 @@
 
 # Song removal
 - [x] Remove the background song, its audio element, and the floating music button; keep every other section.
+# Invitation section removal
+- [x] Remove the invitation/envelope section and its styles; verify Dates → Countdown → Story flow and full-page scroll.
