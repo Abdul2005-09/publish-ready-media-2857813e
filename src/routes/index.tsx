@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Cover } from "@/components/wedding/Cover";
 import { Hero } from "@/components/wedding/Hero";
-import { Envelope } from "@/components/wedding/Envelope";
 import { Music } from "@/components/wedding/Music";
 import { Dates } from "@/components/wedding/Dates";
 import { Closing, Countdown, Gallery, Story, Venue } from "@/components/wedding/Sections";
@@ -42,7 +41,6 @@ function Index() {
       <Music start={opened} />
       <Dates onRevealed={() => setDatesRevealed(true)} />
       {datesRevealed && <Countdown />}
-      <Envelope />
       <Story />
       <Venue />
       <Gallery />
